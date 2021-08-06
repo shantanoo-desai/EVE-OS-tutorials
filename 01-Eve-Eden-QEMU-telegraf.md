@@ -209,3 +209,23 @@ CPU Utilization of the emulated EVE device
 Memory Usage of the emulated EVE device
 
 ![InfluxDB UI Data Exploration for Memory Usage](./assets/01-QEMU-Memory-Dashboard.png)
+
+## Clean Up
+
+1. You can stop the pod using the name of the pod
+
+    ```bash
+    $ ./eden pod stop eve_telegraf
+    ```
+
+2. You can delete the pod after stopping it as follows:
+
+    ```bash
+    $ ./eden pod delete eve_telegraf
+    ```
+
+3. Stop `eden` using:
+
+    ```bash
+    $ ./eden stop
+    ```

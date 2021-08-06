@@ -340,7 +340,7 @@ $ docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 11. The simplest example of deploying and Application on the `eve` device is an `nginx` container. The content of the data to be
     rendered by the HTTP server is in `eden/data/helloeve`
 
-            ./eden pod deploy docker://nginx -p 8028:80 --mount=src=./data/helloeve,dst=/usr/share/nginx/html
+            ./eden pod deploy --name=eve_nginx docker://nginx -p 8028:80 --mount=src=./data/helloeve,dst=/usr/share/nginx/html
     
     This command will mount the data file from your host: `./data/helloeve` to the pod of `nginx` container and make it available
     on port `8028`
@@ -380,3 +380,23 @@ Sample hello eve app
 
 Seems great. If you visit the link on your browser, the page will display the content
 for a certain time and will redirect you to the Eden's GitHub repository.
+
+## Clean Up
+
+1. You can stop the pod using the name of the pod
+
+    ```bash
+    $ ./eden pod stop eve_nginx
+    ```
+
+2. You can delete the pod after stopping it as follows:
+
+    ```bash
+    $ ./eden pod delete eve_nginx
+    ```
+
+3. Stop `eden` using:
+
+    ```bash
+    $ ./eden stop
+    ```
